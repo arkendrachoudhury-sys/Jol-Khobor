@@ -1,0 +1,48 @@
+:root{--bg:#E9EFEE;--panel:#F8FAF9;--ink:#0F2A33;--mute:#53696D;--line:#C5D3D1;--deep:#0F4C5C;--red:#C2402B;--amber:#D9962B;--teal:#2F8F83;--grey:#8A9A98;--river:#BCD6DD;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1A1F;--panel:#132A31;--ink:#E3EEEC;--mute:#9DB4B4;--line:#27434B;--deep:#6FC3D3;--red:#EE7A63;--amber:#F0B955;--teal:#58C2B3;--grey:#6E8587;--river:#1B3E49;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0C1A1F;--panel:#132A31;--ink:#E3EEEC;--mute:#9DB4B4;--line:#27434B;--deep:#6FC3D3;--red:#EE7A63;--amber:#F0B955;--teal:#58C2B3;--grey:#6E8587;--river:#1B3E49;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 "Hind Siliguri",system-ui,sans-serif}
+h1,h2,.big{font-family:"Bricolage Grotesque","Hind Siliguri",system-ui,sans-serif;margin:0}
+.demo{background:var(--amber);color:#1b1304;padding:6px 16px;font-weight:500;font-size:13px;text-align:center}
+header{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:end;justify-content:space-between;padding:20px 20px 8px;max-width:1280px;margin:auto}
+h1{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-.02em;color:var(--deep);line-height:1.05}
+h1 small{display:block;font:500 14px "Hind Siliguri",sans-serif;color:var(--mute);letter-spacing:0;margin-top:6px}
+.stats{display:flex;gap:24px}
+.stat .big{font-size:34px;font-weight:800;line-height:1}
+.stat span{font-size:13px;color:var(--mute)}
+.bar{max-width:1280px;margin:auto;padding:8px 20px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--panel)}
+.seg button,.btn{font:500 14px "Hind Siliguri",sans-serif;color:var(--ink);background:none;border:0;padding:7px 13px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--deep);color:var(--bg)}
+.btn{border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.btn.pri{background:var(--deep);color:var(--bg);border-color:var(--deep)}
+button:focus-visible,select:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.clock{margin-left:auto;font-weight:600;color:var(--mute)}
+main{max-width:1280px;margin:auto;padding:8px 20px 40px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px}
+@media(max-width:900px){main{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.panel+.panel{margin-top:16px}
+h2{font-size:18px;font-weight:600;margin-bottom:8px}
+svg{width:100%;height:auto;display:block}
+.node text{fill:var(--ink);font:500 12.5px "Hind Siliguri",sans-serif;paint-order:stroke;stroke:var(--panel);stroke-width:3px}
+.seglabel{font:600 10px "Hind Siliguri",sans-serif;fill:var(--ink);paint-order:stroke;stroke:var(--panel);stroke-width:3px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--mute);margin-top:8px}
+.legend i{display:inline-block;width:22px;height:0;border-top:5px solid;vertical-align:middle;margin-right:6px}
+.route{border-top:1px solid var(--line);padding:10px 0}
+.route:first-of-type{border-top:0}
+.route b{font-weight:600}
+.tag{display:inline-block;border-radius:5px;padding:0 7px;font-size:12px;font-weight:600;border:1px solid currentColor}
+.t0{color:var(--grey)}.t1{color:var(--amber)}.t2{color:var(--teal)}
+.avoid{color:var(--red)}.caution{color:var(--amber)}.clear{color:var(--teal)}.nodata{color:var(--mute)}
+.feed{max-height:300px;overflow:auto;margin:0;padding:0;list-style:none}
+.feed li{padding:8px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}
+.feed li:first-child{border-top:0}
+.feed small{color:var(--mute)}
+label{font-size:13px;color:var(--mute);display:block;margin-bottom:3px}
+select{width:100%;padding:7px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:inherit}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.note{font-size:12.5px;color:var(--mute);margin-top:10px}
+#detail{min-height:70px}
+@media(prefers-reduced-motion:no-preference){.pulse{animation:p 2s ease-in-out infinite}@keyframes p{50%{opacity:.45}}}

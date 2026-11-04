@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Jol Khobor – Kolkata WaterWatch Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="demo">Demo with sample data. Reports are simulated to show how verification and decay work. Not for real travel decisions.</div>
+<header>
+  <h1>জলখবর কলকাতা<small>Jalkhabar Kolkata · street-level waterlogging, with confidence and age shown</small></h1>
+  <div class="stats">
+    <div class="stat"><div class="big avoid" id="s1">0</div><span>segments to avoid</span></div>
+    <div class="stat"><div class="big nodata" id="s2">0</div><span>with no data</span></div>
+    <div class="stat"><div class="big" id="s3">0</div><span>reports, last hour</span></div>
+  </div>
+</header>
+<div class="bar">
+  <div class="seg" id="modes" role="group" aria-label="Travel mode"></div>
+  <button class="btn" id="rain" aria-pressed="true">Raining now</button>
+  <button class="btn" id="pause">Pause clock</button>
+  <button class="btn" id="theme">Theme</button>
+  <span class="clock" id="clock"></span>
+</div>
+<main>
+  <section>
+    <div class="panel">
+      <h2>Live status map</h2>
+      <svg id="map" viewBox="0 0 640 560" role="img" aria-label="Schematic map of Kolkata road segments coloured by flood status"></svg>
+      <div class="legend">
+        <span><i style="border-color:var(--red)"></i>Avoid</span>
+        <span><i style="border-color:var(--amber)"></i>Caution</span>
+        <span><i style="border-color:var(--teal)"></i>No flooding reported</span>
+        <span><i style="border-color:var(--grey);border-top-style:dashed"></i>No data / stale</span>
+        <span>◌ historically prone area</span>
+      </div>
+      <p class="note">Schematic, not to scale. Grey never means safe: it means we don’t know. T0 unverified, T1 community confirmed, T2 field verified.</p>
+    </div>
+    <div class="panel" id="detail"></div>
+  </section>
+  <section>
+    <div class="panel">
+      <h2>Behala → Esplanade</h2>
+      <div id="routes"></div>
+    </div>
+    <div class="panel">
+      <h2>Add a report</h2>
+      <div class="row">
+        <div><label for="fs">Street segment</label><select id="fs"></select></div>
+        <div><label for="fd">Water level</label><select id="fd"></select></div>
+      </div>
+      <button class="btn pri" id="send">Send report</button>
+      <p class="note">A second report on the same segment within 20 minutes upgrades both to Community Confirmed.</p>
+    </div>
+    <div class="panel">
+      <h2>Report ledger</h2>
+      <ul class="feed" id="feed"></ul>
+    </div>
+  </section>
+</main>
+<script src="js/app.js"></script>
+</body>
+</html>
